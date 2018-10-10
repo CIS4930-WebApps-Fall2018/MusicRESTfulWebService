@@ -1,4 +1,4 @@
-package main.java.main;
+package com.musicApp.app;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,8 +8,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import main.java.dao.*;
-import main.java.model.*;
+import com.musicApp.dao.*;
+import com.musicApp.model.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -30,6 +30,8 @@ public class Application implements CommandLineRunner {
     @Override
     public void run(String... strings) throws Exception {
         AlbumDAO albumDAO = new AlbumDAO(jdbcTemplate);
+
+        /** You can now use the provided .sql scripts to create and populate tables.
         TrackDAO trackDAO = new TrackDAO(jdbcTemplate);
 
         log.info("Creating tables");
@@ -46,6 +48,7 @@ public class Application implements CommandLineRunner {
                 "id INT, title VARCHAR(255))");
 
         albumDAO.createAlbum(new Album (42, "Album 1"));
+        */
         albumDAO.getAllAlbums().forEach(album -> log.info(album.toString()));
 
     }

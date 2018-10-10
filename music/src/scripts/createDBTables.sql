@@ -1,0 +1,6 @@
+SHOW TABLES;
+DROP TABLE IF EXISTS albums, tracks;
+SHOW TABLES;
+CREATE TABLE tracks(id SERIAL, title VARCHAR(255), album INT);
+CREATE TABLE albums(id INT, title VARCHAR(255));
+SHOW TABLES;

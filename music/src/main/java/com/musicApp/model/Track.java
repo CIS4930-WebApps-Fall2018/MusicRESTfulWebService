@@ -1,4 +1,4 @@
-package main.java.model;
+package com.musicApp.model;
 
 public class Track {
     private int id, albumId;

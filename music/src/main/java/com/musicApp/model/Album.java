@@ -1,4 +1,4 @@
-package main.java.model;
+package com.musicApp.model;
 
 import java.util.Collection;
 
