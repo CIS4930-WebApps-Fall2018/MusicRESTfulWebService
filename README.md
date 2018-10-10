@@ -1,32 +1,41 @@
-Documentation: 
+# MusicRESTfulWebService - Example
+
+### Documentation: 
    Building RESTful Web Services with JAX-RS
  	https://docs.oracle.com/cd/E19798-01/821-1841/6nmq2cp1v/index.html
 
-In provided code, review:
+### In provided code, review:
+```
    pom.xml 
    music\src\main
    music\src\main\java\com\musicApp      
    music\src\main\webapp\WEB-INF\web.xml
-# MusicRESTfulWebService - Example
-
+```
 ### Create and/or populate database and tables if needed
+```
    >mysql –u root –p
    mysql>use db_example
    mysql> source <YOUR-project-root>\music\src\scripts\createDBTables.sql; 
    mysql> source <YOUR-project-root>\music\src\scripts\populateDBTables.sql;
+```
 
 ### Build your REST web app as
    .war as archive (.war)
+   ```
 	>mvn clean compile war:war
+   ```
  OR	
    exploded (full directory structure)
+   ```
 	>mvn  clean compile war:exploded 
-
+   ```
+   
 ### Web app
+```
    music\target\music-2.0.3.RELEASE
    Review code structure created to run as a web app
    Move to <YOUR-Tomcat-Installation>\webapps 
-
+```
 ### Restart Tomcat
 
 ==>You can always use IDE, create scripts, define paths, etc. to automate above steps
