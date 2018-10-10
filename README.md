@@ -1,24 +1,48 @@
-# Assignment1
-Setup Data Access Object layer with MySQL, Java, and JDBC
+Documentation: 
+   Building RESTful Web Services with JAX-RS
+ 	https://docs.oracle.com/cd/E19798-01/821-1841/6nmq2cp1v/index.html
 
-The purpose of this assignment is to help prepare you for the first individual programming project.  
-You are expected to successfully complete the following:
+In provided code, review:
+   pom.xml 
+   music\src\main
+   music\src\main\java\com\musicApp      
+   music\src\main\webapp\WEB-INF\web.xml
+# MusicRESTfulWebService - Example
 
-### GitHub Setup
+### Create and/or populate database and tables if needed
+   >mysql –u root –p
+   mysql>use db_example
+   mysql> source <YOUR-project-root>\music\src\scripts\createDBTables.sql; 
+   mysql> source <YOUR-project-root>\music\src\scripts\populateDBTables.sql;
 
-1. Create a github.com account.
-2. Create a private github repository (any name you prefer) and create a remote connection from your local 
-   project directory to the new repository.
-3. Clone this repository and push it to your new personal repository.
+### Build your REST web app as
+   .war as archive (.war)
+	>mvn clean compile war:war
+ OR	
+   exploded (full directory structure)
+	>mvn  clean compile war:exploded 
 
-### Code Implementation
+### Web app
+   music\target\music-2.0.3.RELEASE
+   Review code structure created to run as a web app
+   Move to <YOUR-Tomcat-Installation>\webapps 
 
-4. Make sure you can build and run the project as-is.
-5. Complete the CRUD functions in AlbumDAO.java and TrackDAO.java
-6. Change from using an in-memory database to persisting data with MySQL.
+### Restart Tomcat
 
-### Submission
+==>You can always use IDE, create scripts, define paths, etc. to automate above steps
 
-- In GitHub, upload all code, and add the TAs as collaborators.
-  - Do NOT make changes after the deadline.  We will use the final timestamp as the submission time.
-- In Canvas, provide your GitHub username and a link to this project’s repository.
+### *Testing
+1. Browser with Developer Tools
+   Open Chrome (or browser of choice)
+   Open the browser’s Developer Tools
+   Go to: 
+ 	http://localhost:8080/music-2.0.3.RELEASE/music/albums
+Note: The web app name (e.g. music-2.0.3.RELEASE) is the name of the folder in your Tomcat\webapps directory
+
+2. Postman (in Chrome)
+   https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en
+
+### *Helpful tutorials (although not exact)
+   https://www.codejava.net/frameworks/spring/spring-mvc-with-jdbctemplate-example 
+   https://www.javacodegeeks.com/2010/11/jaxws-with-spring-and-maven-tutorial.html 
+   https://www.mkyong.com/webservices/jax-rs/jersey-hello-world-example/ 
