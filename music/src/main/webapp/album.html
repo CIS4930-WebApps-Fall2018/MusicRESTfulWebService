@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Ajax+Vanilla JS REST Client Test</h1>
+<h2>Use JavaScript to Create Album Object</h2>
+
+
+<p>Click the button to create an album object.</p>
+
+<button onclick="ajax_create()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    alert("Hello! I am an alert box!");
+}
+
+function ajax_create() {
+      // Create our XMLHttpRequest object
+      var hr = new XMLHttpRequest();
+      var url = "http://localhost:8080/musicapp/music/albums/create";
+      var id = Math.floor(Math.random() * 100);
+      var title = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+      var dataString = 'id=' + id + '&title=' + title;
+      hr.open("POST", url, true);
+      hr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+      // Set content type header information for sending url encoded variables in the request
+      hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      hr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("demo").innerHTML = this.responseText;
+            }
+       };
+      hr.send(dataString);
+      alert(dataString);
+ }
+</script>
+
+</body>
+</html>

@@ -6,12 +6,9 @@ import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 import org.springframework.stereotype.Controller;
 
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.Produces;
 import java.util.Collection;
 import java.util.ArrayList;
 
@@ -65,6 +62,14 @@ public class AlbumController extends HttpServlet  {
 
 		return demoAlbum;
 	}
+
+	@POST
+    @Path("/create")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Album createAlbum(@FormParam("id") int id, @FormParam("title") String title){
+	     Album demoAlbum = new Album(id, title);
+	     return demoAlbum;
+    }
 
 	@GET
 	@Produces("text/plain")
