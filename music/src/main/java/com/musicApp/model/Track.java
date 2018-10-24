@@ -4,6 +4,8 @@ public class Track {
     private int id, albumId;
     private String title ;
 
+    public Track(){}
+
     public Track(int id, String title, int albumId) {
         this.id = id;
         this.title = title;
